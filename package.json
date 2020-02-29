@@ -1,5 +1,5 @@
 {
-  "name": "tktks",
+  "name": "plants",
   "main": "./bin/www",
   "version": "0.0.0",
   "private": true,
@@ -15,5 +15,17 @@
     "http-errors": "~1.6.3",
     "mongoose": "~5.9.2",
     "morgan": "~1.9.1"
-  }
+  },
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msegnit/crazyplant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msegnit/crazyplant/issues"
+  },
+  "homepage": "https://github.com/msegnit/crazyplant#readme"
 }

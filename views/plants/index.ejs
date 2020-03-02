@@ -4,9 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/stylesheets/main.css" />
-  <title>Tktks</title>
+  <title>Plants</title>
 </head>
 <body>
+  <a href="" class="brand-logo left">crazyPlant</a>
+ <ul class="right">
+ 	<li>
+ 	<% if (user) { %>
+ 		<a href="/logout">Log Out</a>
+ 	<% } else { %>
+ 		<a href="/auth/google">Login with Google</a>
+   <% } %>
+   
+ 	</li>
+ </ul>
   
 </body>
 </html>

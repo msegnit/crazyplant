@@ -1,12 +1,25 @@
-const Tktk = require("../models/plant");
+const Plant = require("../models/plant");
 
 module.exports = {
-  index
+  index,
+  addPlant
 };
 
 function index(req, res) {
-  Tktk.find({}, function(err, plants) {
+  Plant.find({}, function(err, plants) {
     if (err) return next(err);
-    res.render("plants/index", { plants });
+    res.render('plants/index', {
+      plants,
+      user: req.user,
+      name: req.query.name,
+  
+    });
+  });
+}
+
+function addPlant(req, res, next) {
+  req.user.facts.push(req.body);
+  req.user.save(function(err) {
+    res.redirect('/students');
   });
 }

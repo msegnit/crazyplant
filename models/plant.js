@@ -1,8 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const plantSchema = new Schema({
+const userSchema = new Schema({
+    name: String,
+   email: String,
+   googleId: String
+ }, {
+   timestamps: true
+ });
 
-});
 
-module.exports = mongoose.model("Tktk", plantSchema);
+module.exports = mongoose.model("Plant", userSchema);

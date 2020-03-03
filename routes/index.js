@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 
 router.get('/', function(req, res, next) {
-  res.render('plants/index', { title: 'Plant Index', user: req.user });
+  res.render('users/index', { title: 'User Index', user: req.user });
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -21,7 +21,7 @@ router.get('/oauth2callback', passport.authenticate(
 
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/plants');
+  res.redirect('/users');
 });
 
 module.exports = router;

@@ -1,0 +1,54 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div>Plant Name: </div>
+  <div><%= plant.addplant %></div>
+  <div>Add Type of Lighting </div>
+  <div><%= plant.lighting %></div>
+  <div>Add Type of Environment: </div>
+  <div><%= plant.environment %></div>
+  </div>
+</section>
+
+<form id="add-new-plant" action="/plants/<%= plant._id%>/newplant" method="POST">
+  <select name="newplantId">
+    <%- newplant.map(n => 
+      `<option value="${n._id}">${n.name}</option>`
+    ).join('') %>
+  </select>
+  <button type="submit">Add to Plants Directory</button>
+</form>
+
+<br><br>
+
+<% if (plant.reviews.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Plant</th>
+        <th>Lighting</th>
+        <th>Environment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let total = 0 %>
+      <% plant.newplant.forEach(function(p) { %>
+        <% total += p.lighting %>
+        <tr>
+          <td><%= p.createdAt.toLocaleDateString() %></td>
+          <td><%= p.content %></td>
+          <td><%= p.rating %></td>
+        </tr>
+      <% }); %>
+      <tr>
+        <td colspan="2"></td>
+        <td><strong><%= (total / plant.reviews.length).toFixed(1) %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Plants Added Yet</h5>
+<% } %>
+
+
+<%- include('../partials/footer') %>

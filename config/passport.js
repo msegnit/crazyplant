@@ -1,6 +1,6 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const Plant = require('../models/plant');
+const User = require('../models/user');
 
 // new code below
 passport.use(new GoogleStrategy({
@@ -9,31 +9,31 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
-    Plant.findOne({ 'googleId': profile.id }, function(err, plant) {
+    User.findOne({ 'googleId': profile.id }, function(err, user) {
         if (err) return cb(err);
-        if (plant) {
-          return cb(null, plant);
+        if (user) {
+          return cb(null, user);
         } else {
-          var newPlant = new Plant({
+          var newUser = new User({
             name: profile.displayName,
             email: profile.emails[0].value,
             googleId: profile.id
           });
-          newPlant.save(function(err) {
+          newUser.save(function(err) {
             if (err) return cb(err);
-            return cb(null, newPlant);
+            return cb(null, newUser);
           });
         }
       });
     }
   ));
-  passport.serializeUser(function(plant, done) {
-    done(null, plant.id);
+  passport.serializeUser(function(user, done) {
+    done(null, user.id);
 });
 
 
   passport.deserializeUser(function(id, done) {
-    Plant.findById(id, function(err, plant) {
-      done(err, plant);
+    User.findById(id, function(err, user) {
+      done(err, user);
     });
   });

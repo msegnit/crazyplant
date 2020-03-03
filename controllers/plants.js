@@ -20,6 +20,6 @@ function index(req, res) {
 function addPlant(req, res, next) {
   req.user.facts.push(req.body);
   req.user.save(function(err) {
-    res.redirect('/students');
+    res.redirect('/plants');
   });
 }

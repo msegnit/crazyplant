@@ -1,3 +1,7 @@
 body {
   font-family: sans-serif;
+  background-image: url(https://i.imgur.com/bcC4EK1h.jpg);
+  background-position: fixed;
+  font-size: 30px;
+  color: white;
 }

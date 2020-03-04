@@ -1,10 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const plantSchema = new Schema ({
-    plantName: String,
-    
-})
+const plantSchema = new Schema({
+  plantName: { 
+   type:String,
+  },
+  lighting: {
+      type: String,
+  }, 
+  environment: {
+      type: String
+  } 
+});
 
 const userSchema = new Schema({
     name: String,

@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Test</h1>
-</body>
-</html>
+<%- include('../partials/header') %>
+
+    
+    <h1>Plant Directory</h1>
+    <% if (user.plants) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Plant</th>
+              <th>Lighting</th>
+              <th>Environment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (user.plants) { %>
+            <% user.plants.forEach(function(p, idx) { %>
+              <tr>
+                <td><%= p.plantName %></td>
+                <td><%= p.lighting %></td>
+                <td><%= p.environment %></td>
+                <td><a href="/plants/<%= idx %>">Gimme the deets</a></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } else {%>
+        <h5>No Plants Added Yet</h5>
+      <% }} %>
+
+
+  
+</form>
+
+<%- include('../partials/footer') %>

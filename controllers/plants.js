@@ -6,7 +6,8 @@ module.exports = {
   newPlant,
   create,
   show,
-  index
+  index,
+  delete: deleteOne
 }
 
 function newPlant (req, res) {
@@ -39,3 +40,12 @@ function index(req, res) {
  res.render('plants/index', {title: "Yaaay, plants!", user})
 });
 }
+
+function deleteOne(req, res) {
+  User.findById(req.user._id, (err, user) => {
+    user.plants.splice(req.params.idx, 1);
+    user.save( (err) => {
+      res.redirect('/plants');
+    })
+  })
+};

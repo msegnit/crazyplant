@@ -19,6 +19,8 @@
                 <td><%= p.lighting %></td>
                 <td><%= p.environment %></td>
                 <td><a href="/plants/<%= idx %>">Gimme the deets</a></td>
+                <form action="/plants/<%= p._id %>?_method=DELETE" method= "POST">
+                <td><input type="submit" value="Remove"></form></td>
               </tr>
             <% }); %>
           </tbody>

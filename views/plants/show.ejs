@@ -1,14 +1,31 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-  <div>Plant Name: </div>
-  <div><%= plant.plantName %></div>
-  <div>Lighting: </div>
-  <div><%= plant.lighting %></div>
-  <div>Environment: </div>
-  <div><%= plant.environment %></div>
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Plant:</th>
+        <th><%= plant.plantName %></th>
+        <th>Lighting:</th>
+        <th><%= plant.lighting %></th>
+        <th>Environment:</th>
+        <th><%= plant.environment %></th>
+      </tr>
+    </thead>
+    </table>
 </section>
+<br>
+<form id="add-review-form" method="POST" action="/plants/<%= user._id %>/reviews">
+  <textarea name="content"></textarea>
+  <select name="review">
+    <option value="1">Meh</option>
+    <option value="2">Slightly better than meh</option>
+    <option value="3">I'm torn</option>
+    <option value="4">Yassss</option>
+    <option value="5">Amazeballs</option>
+  </select>
+  <input type="submit" value="Add Review">
+</form>
 
 
 

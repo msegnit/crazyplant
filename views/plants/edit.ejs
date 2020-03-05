@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/plants/<%= plant._id %>/update?_method=PUT" id="new-form" method="POST">
+  <label>Plant Name:</label>
+  <input type="text" name="plantName" value="<%= plant.plantName %>">
+  <br>
+  <label>Edit Lighting:</label>
+  <input type="text" name="lighting" value="<%= plant.lighting %>"><br>
+  <br>
+  <label>Edit Environment:</label>
+  <input type="text" name="environment" value="<%= plant.environment %>">
+  <br>
+  <input type="submit" value="Update">
+</form>
+
+
+<%- include('../partials/footer') %>

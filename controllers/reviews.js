@@ -8,16 +8,17 @@ module.exports = {
 };
 
 function create(req, res) {
-  User.findById(req.params.id, function(err, user) {
-    user.reviews.push(req.body);
+  User.findById(req.user._id, function(err, user) {
+     let plant = user.plants.id(req.params.id)
+    plant.reviews.push(req.body);
     user.save(function(err) {
-      res.redirect(`/plant/${user._id}`);
+      res.redirect(`/plants/${req.params.id}`);
     });
   });
 }
 
 function deleteOne(req, res) {
-    Plant.findOne({"reviews._id" : req.params.id}, function(err, plant) {
+    User.findOne({"reviews._id" : req.params.id}, function(err, plant) {
         const review = plant.reviews.id(req.params.id);
         const idx = plant.reviews.indexOf(review);
         if (req.user._id.equals(review.userId)) {

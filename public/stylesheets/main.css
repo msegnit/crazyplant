@@ -36,5 +36,30 @@ input {
   color: #ee6e73;
   font-family: 'Lobster', cursive;
   text-align: center;
+  margin-top: -75px;
+}
+
+.container {
+  text-align: center;
+}
+
+img {
+  border-radius: 50px;
+}
+
+textarea {
+  color: black;
+  font-size: 40px;
+  font-family: 'Lobster', cursive;
+  margin-top: -20px;
+  
+}
+
+value {
+  color: black;
+  font-size: 40px;
+  font-family: 'Lobster', cursive;
+  margin-top: -20px;
+
 }
 

@@ -15,19 +15,41 @@
     </table>
 </section>
 <br>
-<form id="add-review-form" method="POST" action="/plants/<%= user._id %>/reviews">
-  <textarea name="content"></textarea>
-  <select name="review">
-    <option value="1">Meh</option>
-    <option value="2">Slightly better than meh</option>
-    <option value="3">I'm torn</option>
-    <option value="4">Yassss</option>
-    <option value="5">Amazeballs</option>
-  </select>
-  <input type="submit" value="Add Review">
+<form method="POST" action="/reviews/plants/<%= plant._id %>/reviews" <% if (!user) { %> hidden <% } %>>
+  <label class="form-label">Review: <br>
+  <textarea name="content" id="textbox"></textarea>
+  </label> <br>
+  <div class="rating">
+    <label class="form-label">Rating:
+    <select name="rating" class="browser-default">
+        <option value="5">Amazeballs</option>
+        <option value="4">Yassss</option>
+        <option value="3">I'm torn</option>
+        <option value="2">Slightly better than meh</option>
+        <option value="1">Meh!</option>
+    </select> 
+    </label>
+    </div>
+  <br> <br>
+  </form>
+  <form method="POST" action="/plants/<%= plant._id %>/reviews"><input type="submit" value="Add Review" class="button"></form>
+  <form method="GET" action="/plants/<%= plant._id %>/edit">
+   <input type="submit" value="Edit" class="button">
 </form>
-
-
+<% if (plant.reviews) { %>
+  <% plant.reviews.forEach(function(r){ %>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Review</span>
+        <p><%=  r.content %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<% }); %>
+<% }%>
 
 
 <%- include('../partials/footer') %>

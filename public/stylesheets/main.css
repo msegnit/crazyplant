@@ -2,14 +2,14 @@ body {
   /* background-image: url(https://i.imgur.com/V9XYNU5h.jpg); */
   
   background-position: fixed;
-  font-size: 30px;
-  color: white;
+  font-size: 50px;
+  color: #ee6e73;
   font-family: 'Lobster', cursive;
 }
 
 h1 {
-  font-size: 75px;
-  color: white;
+  font-size: 100px;
+  color: #ee6e73;
   font-family: 'Lobster', cursive;
   text-align: center;
 }
@@ -27,5 +27,7 @@ body::after {
 }
 
 label {
-  color: black;
+  color: #ee6e73;
+  font-size: 50px;
 }
+

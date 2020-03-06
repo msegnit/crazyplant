@@ -19,17 +19,6 @@
   <label class="form-label">Review: <br>
   <textarea name="content" id="textbox"></textarea>
   </label> <br>
-  <div class="rating">
-    <label class="form-label">Rating:
-    <select name="rating" class="browser-default">
-        <option value="5">Amazeballs</option>
-        <option value="4">Yassss</option>
-        <option value="3">I'm torn</option>
-        <option value="2">Slightly better than meh</option>
-        <option value="1">Meh!</option>
-    </select> 
-    </label>
-    </div>
   <br> <br>
   </form>
   <form method="POST" action="/plants/<%= plant._id %>/reviews"><input type="submit" value="Add Review" class="button"></form>

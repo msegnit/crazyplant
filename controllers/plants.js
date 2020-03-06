@@ -28,7 +28,6 @@ function create (req, res) {
 
 function show(req, res) {
   User.findById(req.user._id, function(err, user) {
-    console.log("I'm user in the show func", user)
     let plant = user.plants.id(req.params.id);
     console.log(plant, "This is a plant");
     res.render('plants/show', {title: "Plant deets", user: req.user, plant})
@@ -63,8 +62,6 @@ function edit(req, res) {
 
 function update(req, res) {
   User.findById(req.user._id, function(err, user) {
-    console.log(req.params.id);
-    console.log(req.body);
     var planty = user.plants.id(req.params.id);
     planty.plantName = req.body.plantName;
     planty.lighting = req.body.lighting;

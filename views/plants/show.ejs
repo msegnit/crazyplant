@@ -18,12 +18,12 @@
 <form method="POST" action="/reviews/plants/<%= plant._id %>/reviews" <% if (!user) { %> hidden <% } %>>
   <label class="form-label">Review: <br>
   <textarea name="content" id="textbox"></textarea>
+  <form method="GET" action="/plants/<%= plant._id %>/edit"><input type="submit" value="Add Review" class="button">
+    <input type="submit" value="Edit" class="button"></label></form>
   </label> <br>
   <br> <br>
-  </form>
-  <form method="POST" action="/plants/<%= plant._id %>/reviews"><input type="submit" value="Add Review" class="button"></form>
-  <form method="GET" action="/plants/<%= plant._id %>/edit">
-   <input type="submit" value="Edit" class="button">
+
+  
 </form>
 <% if (plant.reviews) { %>
   <% plant.reviews.forEach(function(r){ %>
